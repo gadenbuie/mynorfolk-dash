@@ -1,0 +1,4 @@
+- source: index.qmd
+  quarto-pub:
+    - id: 6791a966-3ac1-4e6a-830d-549591e9e6f3
+      url: 'https://grrrck.quarto.pub/mynorfolk-dash'

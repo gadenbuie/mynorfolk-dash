@@ -1,0 +1,178 @@
+---
+title: "MyNorfolk Requests"
+logo: https://www.norfolk.gov/ImageRepository/Document?documentID=49561
+format: dashboard
+
+theme: 
+  - cosmo
+  - custom.scss
+
+execute: 
+  echo: false
+---
+
+```{r setup, include = FALSE}
+library(dplyr)
+library(ggplot2)
+library(forcats)
+
+library(targets)
+tar_source("R/formatting.R")
+
+bslib::bs_global_theme(bootswatch = "cosmo")
+thematic::thematic_rmd()
+theme_set(theme_minimal(18))
+```
+
+# Today
+
+```{r load-targets-today}
+#| include: false
+tar_load(c(today_stats, today_plots))
+```
+
+## Row 
+
+::: {.valuebox icon="arrow-repeat" color="vb-warning"}
+In Progress
+
+`r number(today_stats$n_in_progress_total)`
+
+`r change(0, today_stats$n_in_progress_new, when = "were started today", more = NULL, less = NULL)`
+:::
+
+
+::: {.valuebox icon="plus-circle" color="vb-info"}
+Opened
+
+`r number(today_stats$n_opened)`
+
+`r change(today_stats$n_opened_yesterday, today_stats$n_opened, when = "yesterday")`
+:::
+
+::: {.valuebox icon="check-circle" color="vb-success"}
+Closed
+
+`r number(today_stats$n_closed)`
+
+`r change(today_stats$n_closed_yesterday, today_stats$n_closed, when = "yesterday")`
+:::
+
+::: {.valuebox icon="x-circle" color="vb-danger"}
+Cancelled
+
+`r number(today_stats$n_cancelled)`
+
+`r change(today_stats$n_cancelled_yesterday, today_stats$n_cancelled, when = "yesterday")`
+:::
+
+## Row
+
+### Column {.tabset width="50%"}
+
+```{r today-top-new-requests}
+#| title: Top New Requests
+today_plots$top_new_requests
+```
+
+```{r today-top-in-progress}
+#| title: Top In Progress
+#| caption: These things are in progress right now.
+today_plots$top_in_progress
+```
+
+```{r today-top-closed}
+#| title: Top Closed Today
+today_plots$top_closed
+```
+
+
+# Week
+
+```{r load-targets-week}
+#| include: false
+tar_load(c(week_stats, week_plots))
+```
+
+## Row 
+
+::: {.valuebox icon="arrow-repeat" color="vb-warning"}
+In Progress
+
+`r number(today_stats$n_in_progress_total)`
+
+`r change(0, week_stats$n_started, when = "were started this week", more = NULL, less = NULL)`
+:::
+
+
+::: {.valuebox icon="plus-circle" color="vb-info"}
+Opened
+
+`r number(week_stats$n_opened)`
+
+`r change(week_stats$n_opened_prev, week_stats$n_opened, when = "last week")`
+:::
+
+::: {.valuebox icon="check-circle" color="vb-success"}
+Closed
+
+`r number(week_stats$n_closed)`
+
+`r change(week_stats$n_closed_prev, week_stats$n_closed, when = "last week")`
+:::
+
+::: {.valuebox icon="x-circle" color="vb-danger"}
+Cancelled
+
+`r number(week_stats$n_cancelled)`
+
+`r change(week_stats$n_cancelled_prev, week_stats$n_cancelled, when = "last week")`
+:::
+
+## Row
+
+### Column {.tabset width="50%"}
+
+```{r week-top-new-requests}
+#| title: Top New Requests
+week_plots$top_new_requests
+```
+
+```{r week-top-in-progress}
+#| title: Top In Progress
+#| caption: These things are in progress right now.
+week_plots$top_in_progress
+```
+
+```{r week-top-closed}
+#| title: Top Closed This Week
+week_plots$top_closed
+```
+
+
+# About {scrolling="true"}
+
+## Row
+
+::: card
+::: card-header
+About MyNorfolk
+:::
+::: card-body
+This dashboard is a demo of Quarto dashboards and **is not affiliated** with the city of Norfolk.
+
+[MyNorfolk](https://www.mynorfolk.org/#/homepage) is a service that allows residents of [the City of Norfolk](https://www.norfolk.gov/) to request services online from their computer or mobile device.
+The data used in this dashboard is available on the [Norfolk Open Data Portal](https://data.norfolk.gov/Government/MyNorfolk/nbyu-xjez).
+:::
+:::
+
+::: card
+::: card-header
+About this dashboard
+:::
+::: card-body
+This dashboard is built with [Quarto Dashboards](https://quarto.org/docs/dashboards/),
+a new output format to be 
+The dashboard is updated regularly and published on [Quarto Pubs](https://quartopub.com/).
+:::
+:::

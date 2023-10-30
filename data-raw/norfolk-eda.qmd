@@ -1,0 +1,49 @@
+---
+title: Norfolk Data EDA
+format: html
+---
+
+```{r}
+library(tidyverse)
+
+data_file <- sprintf(here::here("data/my-norfolk.%s.parquet"), today())
+my_norfolk <- arrow::read_parquet(data_file)
+```
+
+
+```{r}
+my_norfolk |> count(service_request_category, sort = TRUE)
+my_norfolk |> count(service_request_type, sort = TRUE)
+my_norfolk |> count(service_request_category, service_request_type, sort = TRUE)
+my_norfolk |> count(status, sort = TRUE)
+my_norfolk |> summarize(across(contains("date"), list(min = min, max = max)))
+```
+
+
+```{r}
+my_norfolk |>
+  mutate(status = fct_rev(status)) |>
+  ggplot() +
+  aes(modification_date, fill = status) +
+  geom_histogram(binwidth = 365*3600*24/4)
+```
+
+
+```{r}
+my_norfolk |>
+  mutate(service_request_category = fct_reorder(service_request_category, age, median)) |>
+  ggplot() +
+  aes(age) +
+  geom_boxplot() +
+  facet_grid(service_request_category ~ is_resolved) +
+  theme(strip.text.y = element_text(angle = 0))
+```
+
+
+```{r}
+my_norfolk |>
+  mutate(quarter = floor_date(creation_date, unit = "year")) |>
+  group_by(quarter, service_request_category, service_request_type) |>
+  summarize(age = median(age), n = n()) |>
+  arrange(desc(age))
+```
