@@ -1,21 +1,16 @@
-plots_week <- function(norfolk, week_this) {
+plots_week <- function(week_stats) {
   list(
     top_new_requests =
-      norfolk |>
-        plotly_top_requests(
-          creation_date >= week_this$start
-        ),
+      plotly_top_requests(week_stats$opened),
     top_in_progress =
-      norfolk |>
-        plotly_top_requests(
-          status == "In progress",
-          modification_date >= week_this$start
-        ),
+      plotly_top_requests(week_stats$started),
     top_closed =
-      norfolk |>
-        plotly_top_requests(
-          status == "Closed",
-          modification_date >= week_this$start
-        )
+      plotly_top_requests(week_stats$closed),
+    opened_by_hour =
+      plotly_by_hour(week_stats$opened),
+    resolved_by_hour =
+      week_stats$closed |>
+      bind_rows(week_stats$cancelled) |>
+      plotly_by_hour()
   )
 }

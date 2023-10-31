@@ -38,7 +38,7 @@ list(
   ),
   tar_target(
     today_plots,
-    plots_today(norfolk, today)
+    plots_today(today_stats)
   ),
 
   # Page: Week ----
@@ -48,7 +48,7 @@ list(
   ),
   tar_target(
     week_plots,
-    plots_week(norfolk, week_this)
+    plots_week(week_stats)
   ),
 
   # Render Quarto Dashboard ----
