@@ -1,6 +1,6 @@
 ---
 title: "MyNorfolk Requests"
-logo: https://www.norfolk.gov/ImageRepository/Document?documentID=49561
+logo: assets/city-of-norfolk.png
 format: dashboard
 
 theme: 
