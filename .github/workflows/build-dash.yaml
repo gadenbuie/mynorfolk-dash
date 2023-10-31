@@ -3,7 +3,7 @@ on:
     branches:
       - main
   schedule:
-      - cron: "15 5,12,14 * * MON-FRI"
+      - cron: "03 13,16,19 * * MON-FRI"
   workflow_dispatch:
 
 name: build-dash
