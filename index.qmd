@@ -7,6 +7,9 @@ theme:
   - cosmo
   - assets/styles/custom.scss
   - assets/styles/quarto.scss
+  
+resources:
+  - assets/city-of-norfolk.png
 
 execute: 
   echo: false
