@@ -7,4 +7,9 @@
       margin-right: unset !important;
     }
   }
+
+  .quarto-dashboard .navbar .navbar-nav .active {
+    box-shadow: 0px -2px 0px 0px inset;
+    background-color: unset;
+  }
 }
