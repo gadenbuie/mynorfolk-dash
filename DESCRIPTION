@@ -1,0 +1,30 @@
+Type: Project
+Package: mynorfolk-dash
+Title: A demo Quarto dashboard for MyNorfolk Requests
+Version: 0.0.1
+Authors@R: 
+    person("Garrick", "Aden-Buie", , "garrick@adenbuie.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7111-0077"))
+Description: A demo Quarto dashboard for MyNorfolk Requests.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: 
+    dplyr,
+    forcats,
+    lubridate,
+    targets
+Imports: 
+    arrow,
+    bslib (>= 0.5.1.9000),
+    htmltools,
+    janitor,
+    plotly,
+    quarto,
+    rlang,
+    scales,
+    shiny
+Suggests: 
+    devtools,
+    usethis
+Remotes: 
+    rstudio/bslib

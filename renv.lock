@@ -235,11 +235,14 @@
     "bslib": {
       "Package": "bslib",
       "Version": "0.5.1.9000",
-      "Source": "Git",
-      "Remotes": "rstudio/htmltools",
-      "RemoteType": "xgit",
-      "RemoteUrl": "https://github.com/rstudio/bslib.git",
-      "RemoteSha": "3e246af5248ff5ffb618bb332c8afaadb658845b",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "rstudio",
+      "RemoteRepo": "bslib",
+      "RemoteRef": "main",
+      "RemoteSha": "17e5b38a37759c86fd316af4c3a07ed5354e58f8",
+      "Remotes": "rstudio/htmltools, rstudio/shiny",
       "Requirements": [
         "R",
         "base64enc",
@@ -254,7 +257,7 @@
         "rlang",
         "sass"
       ],
-      "Hash": "39cf8528c9a6a4f323e8b1b3620894d0"
+      "Hash": "8dfa2176442c4bdde142d1b35cdd5604"
     },
     "cachem": {
       "Package": "cachem",
