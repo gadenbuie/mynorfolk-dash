@@ -5,8 +5,8 @@ format: dashboard
 
 theme: 
   - cosmo
-  - styles/custom.scss
-  - styles/quarto.scss
+  - assets/styles/custom.scss
+  - assets/styles/quarto.scss
 
 execute: 
   echo: false
@@ -193,7 +193,9 @@ About this dashboard
 :::
 ::: card-body
 This dashboard is built with [Quarto Dashboards](https://quarto.org/docs/dashboards/),
-a new output format to be 
+a new output format to be released in [Quarto 1.4](https://quarto.org/docs/download/prerelease.html).
 The dashboard is updated regularly and published on [Quarto Pubs](https://quartopub.com/).
+
+[<i class="bi bi-github"></i> Source code](https://github.com/gadenbuie/mynorfolk-dash)
 :::
 :::
