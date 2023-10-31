@@ -184,6 +184,10 @@ This dashboard is a demo of Quarto dashboards and **is not affiliated** with the
 
 [MyNorfolk](https://www.mynorfolk.org/#/homepage) is a service that allows residents of [the City of Norfolk](https://www.norfolk.gov/) to request services online from their computer or mobile device.
 The data used in this dashboard is available on the [Norfolk Open Data Portal](https://data.norfolk.gov/Government/MyNorfolk/nbyu-xjez).
+
+> This dataset provides data from MyNorfolk, a citizen services portal that delegates and tracks requests and questions about the city of Norfolk and the services we provide to our residents, businesses, and visitors. Data for the service requests is collected from phone calls, emails, an app for smart phones and on-line. The portal is managed by the Norfolk Cares Center; its mission is to provide a single point of contact for visitors, residents, businesses and city staff to request a city service, report a concern, seek information about Norfolk, or follow-up on a previous request for service.
+>
+> **Disclaimer** - With the current process in place, not all tickets are closed automatically. There could be tickets shown as open in this dataset that are closed in our other systems. We are working to address the issue.
 :::
 :::
 
