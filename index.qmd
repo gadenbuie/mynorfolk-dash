@@ -5,7 +5,8 @@ format: dashboard
 
 theme: 
   - cosmo
-  - custom.scss
+  - styles/custom.scss
+  - styles/quarto.scss
 
 execute: 
   echo: false

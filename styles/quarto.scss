@@ -1,0 +1,10 @@
+/*-- scss:rules --*/
+@include media-breakpoint-up(lg) {
+  #dashboard-collapse {
+    justify-content: flex-end;
+
+    .navbar-nav.me-auto {
+      margin-right: unset !important;
+    }
+  }
+}
