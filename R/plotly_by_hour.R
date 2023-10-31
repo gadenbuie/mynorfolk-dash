@@ -17,8 +17,8 @@ plotly_by_hour <- function(data) {
         title = "",
         range = c(0, 24),
         dtick = 3,
-        tickvals = seq(0, 24, 3),
-        ticktext = c("12am", paste0(seq(3, 9, 3), "am"), paste0(seq(12, 21, 3), "pm"))
+        tickvals = seq(0, 21, 3),
+        ticktext = c("12am", paste0(seq(3, 9, 3), "am"), "12pm", paste0(seq(3, 9, 3), "pm"))
       ),
       yaxis = list(title = "", overlaying = "y", side = "left"),
       barmode = "stack",
