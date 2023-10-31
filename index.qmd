@@ -19,6 +19,7 @@ library(forcats)
 
 library(targets)
 tar_source("R/formatting.R")
+tar_source("R/top_requests.R")
 
 bslib::bs_global_theme(bootswatch = "cosmo")
 thematic::thematic_rmd()
@@ -87,6 +88,20 @@ today_plots$top_in_progress
 today_plots$top_closed
 ```
 
+### Column
+
+```{r today-opened-by-hour}
+#| title: Opened by Hour of Day
+plotly_by_hour(today_stats$opened)
+```
+
+```{r today-resolved-by-hour}
+#| title: Resolved by Hour of Day
+today_stats$closed |>
+  bind_rows(today_stats$cancelled) |>
+  plotly_by_hour()
+```
+
 
 # Week
 
@@ -148,6 +163,20 @@ week_plots$top_in_progress
 ```{r week-top-closed}
 #| title: Top Closed This Week
 week_plots$top_closed
+```
+
+### Column
+
+```{r week-opened-by-hour}
+#| title: Opened by Hour of Day
+plotly_by_hour(week_stats$opened)
+```
+
+```{r week-resolved-by-hour}
+#| title: Resolved by Hour of Day
+week_stats$closed |>
+  bind_rows(week_stats$cancelled) |>
+  plotly_by_hour()
 ```
 
 
