@@ -19,10 +19,6 @@ library(forcats)
 
 library(targets)
 tar_source("R/formatting.R")
-
-bslib::bs_global_theme(bootswatch = "cosmo")
-thematic::thematic_rmd()
-theme_set(theme_minimal(18))
 ```
 
 # Today
