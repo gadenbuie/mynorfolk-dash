@@ -44,7 +44,15 @@ jobs:
     - name: Build Pipeline and Dashboard
       run: Rscript -e 'targets::tar_make()'
 
+    - name: Was the dashboard updated?
+      id: dashboard-updated
+      run: |
+        if [[ $(git status --porcelain -- index.html index_files/) ]]; then
+          echo "has_update=true" >> "$GITHUB_OUTPUT"
+        fi
+
     - name: Push Built Dashboard
+      if: steps.dashboard-updated.outputs.has_update == 'true'
       run: |
           git config --global user.name 'gha update bot'
           git config --global user.email 'gadenbuie@users.noreply.github.com'
@@ -53,6 +61,7 @@ jobs:
           git push
 
     - name: Publish to Quarto Pub
+      if: steps.dashboard-updated.outputs.has_update == 'true'
       uses: quarto-dev/quarto-actions/publish@v2
       with:
         target: quarto-pub
