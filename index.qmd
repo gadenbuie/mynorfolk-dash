@@ -176,7 +176,7 @@ week_plots$resolved_by_hour
 
 # About
 
-## Row
+## Row {.flow}
 
 ::: card
 ::: card-header
