@@ -1,6 +1,8 @@
 .Rproj.user
 data-raw/*.csv
 data-raw/*.parquet
+/*.scss
+/.quarto
 
 # ---- Default .gitignore From grkmisc ----
 .Rproj.user
